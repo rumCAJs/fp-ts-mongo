@@ -1,12 +1,13 @@
 {
 	"name": "fp-ts-utils",
-	"version": "1.0.0",
-	"description": "",
+	"version": "0.1.0",
+	"description": "Basic fp-ts utils for mongodb",
 	"main": "index.js",
 	"scripts": {
-		"test": "tsx test.ts",
+		"test": "tsx --no-cache test.ts",
 		"start": "ts-node --swc index.ts",
-		"format": "prettier -w ."
+		"format": "prettier -w .",
+		"build": "tsc"
 	},
 	"keywords": [],
 	"author": "",
@@ -16,10 +17,11 @@
 	},
 	"devDependencies": {
 		"@tsconfig/node16": "^1.0.3",
+		"@types/sinon": "^10.0.13",
 		"@types/tape": "^4.13.2",
+		"mock-require": "^3.0.3",
 		"mongodb": "^4.9.0",
 		"prettier": "^2.7.1",
-		"sinon": "^14.0.0",
 		"tape": "^5.6.0",
 		"tsx": "^3.8.2"
 	}
