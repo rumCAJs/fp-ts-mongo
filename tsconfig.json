@@ -1,0 +1,7 @@
+{
+	"extends": "@tsconfig/node16",
+	"compilerOptions": {
+		"declaration": true,
+		"outDir": "dist"
+	}
+}
