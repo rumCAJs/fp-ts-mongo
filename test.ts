@@ -99,10 +99,3 @@ test("should return client when connected", async (t) => {
 		x => x()
 	)
 })
-
-/*
-
-const db = await rewire("./index.ts")
-	const { getCollection, getConnection, getDb } = db
-
-	*/

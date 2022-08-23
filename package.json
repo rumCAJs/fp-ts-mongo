@@ -2,10 +2,10 @@
 	"name": "fp-ts-utils",
 	"version": "0.1.0",
 	"description": "Basic fp-ts utils for mongodb",
-	"main": "index.js",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"scripts": {
 		"test": "tsx --no-cache test.ts",
-		"start": "ts-node --swc index.ts",
 		"format": "prettier -w .",
 		"build": "tsc"
 	},
