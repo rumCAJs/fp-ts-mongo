@@ -1,6 +1,6 @@
 {
 	"name": "@polena/fp-ts-mongo",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"description": "Basic fp-ts utils for mongodb",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",

@@ -8,13 +8,19 @@ import { MongoError } from './error'
 let _connection: O.Option<MongoClient> = O.none
 let _db: O.Option<Db> = O.none
 
-const tryConnect = (mongoUri: string) =>
+const tryConnect = (mongoUri: string, db?: string) =>
 	TE.tryCatch<MongoError, MongoClient>(
 		() =>
 			new Promise(async (res, rej) => {
 				try {
 					const client = await MongoClient.connect(mongoUri)
 					_connection = O.fromNullable(client)
+
+					// try to set DB after connecting
+					if (db) {
+						await tryGetDb(db)()
+					}
+
 					res(client)
 				} catch (e) {
 					rej(e)
@@ -29,10 +35,10 @@ const tryConnect = (mongoUri: string) =>
 
 /**
  * Connect to MongoDB and save connection
- * @param host 
- * @param user 
- * @param pwd 
- * @param db 
+ * @param host
+ * @param user
+ * @param pwd
+ * @param db
  * @returns TaskEither<MongoError, MongoClient>
  */
 export const connect = (
@@ -45,7 +51,7 @@ export const connect = (
 		_connection,
 		O.match(() => {
 			const mongoUri = `mongodb://${user}:${encodeURIComponent(pwd)}@${host}`
-			return tryConnect(mongoUri)
+			return tryConnect(mongoUri, db)
 		}, TE.right)
 	)
 
@@ -90,9 +96,9 @@ export const getDb = (dbName?: string): TE.TaskEither<MongoError, Db> =>
 				dbName
 					? tryGetDb(dbName)
 					: TE.left({
-						_type: 'DbError',
-						message: 'Nno db name provided',
-					}),
+							_type: 'DbError',
+							message: 'No db name provided',
+					  }),
 			(db) => {
 				if (dbName && db.databaseName !== dbName) {
 					return tryGetDb(dbName)
@@ -104,7 +110,7 @@ export const getDb = (dbName?: string): TE.TaskEither<MongoError, Db> =>
 
 /**
  * Get Mongo Collection
- * @param collection 
+ * @param collection
  * @returns TaskEither<MongoError, Collection>
  */
 export const getCollection = <SCHEMA extends Document>(
@@ -112,9 +118,5 @@ export const getCollection = <SCHEMA extends Document>(
 ): TE.TaskEither<MongoError, Collection<SCHEMA>> =>
 	pipe(
 		getDb(),
-		TE.map((db) => db.collection<SCHEMA>(collection)),
-		TE.fold(
-			(e) => TE.left(e),
-			(coll) => TE.right(coll)
-		)
+		TE.map((db) => db.collection<SCHEMA>(collection))
 	)
