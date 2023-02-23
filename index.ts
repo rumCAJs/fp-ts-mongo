@@ -1,7 +1,7 @@
 import { MongoClient, Db, Collection, Document } from 'mongodb'
-import * as TE from 'fp-ts/TaskEither'
-import * as E from 'fp-ts/Either'
-import * as O from 'fp-ts/Option'
+import * as TE from 'fp-ts/lib/TaskEither'
+import * as E from 'fp-ts/lib/Either'
+import * as O from 'fp-ts/lib/Option'
 import { pipe } from 'fp-ts/lib/function'
 import type { MongoError } from './error'
 
