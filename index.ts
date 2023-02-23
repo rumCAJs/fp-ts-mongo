@@ -3,7 +3,7 @@ import * as TE from 'fp-ts/TaskEither'
 import * as E from 'fp-ts/Either'
 import * as O from 'fp-ts/Option'
 import { pipe } from 'fp-ts/lib/function'
-import { MongoError } from './error'
+import type { MongoError } from './error'
 
 let _connection: O.Option<MongoClient> = O.none
 let _db: O.Option<Db> = O.none
@@ -120,3 +120,5 @@ export const getCollection = <SCHEMA extends Document>(
     getDb(),
     TE.map((db) => db.collection<SCHEMA>(collection))
   )
+
+export type { MongoError, ConnectionError, DbError } from './error'
