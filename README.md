@@ -31,13 +31,13 @@ import { match } from 'fp-ts/lib/TaskEither'
 import { pipe } from 'fp-ts/lib/function'
 
 pipe(
-	getCollection<TSchema>('test'),
-	match(
-		// e -> MongoError
-		(e) => console.error(e),
-		// collection -> Collection<TSchema>
-		(collection) => collection.find().toArray()
-	),
-	(run) => run()
+  getCollection<TSchema>('test'),
+  match(
+    // e -> MongoError
+    (e) => console.error(e),
+    // collection -> Collection<TSchema>
+    (collection) => collection.find().toArray()
+  ),
+  (run) => run()
 )
 ```

@@ -1,39 +1,40 @@
 {
-	"name": "@polena/fp-ts-mongo",
-	"version": "0.3.0",
-	"description": "Basic fp-ts utils for mongodb",
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
-	"files": [
-		"dist/*"
-	],
-	"scripts": {
-		"test": "tsx --no-cache test.ts",
-		"format": "prettier -w .",
-		"build": "tsc"
-	},
-	"keywords": [],
-	"author": "jaromir.polena@gmail.com",
-	"license": "MIT",
-	"dependencies": {
-		"mongodb": "^4.9.0",
-		"fp-ts": "^2.12.2"
-	},
-	"devDependencies": {
-		"@tsconfig/node16": "^1.0.3",
-		"@types/sinon": "^10.0.13",
-		"@types/tape": "^4.13.2",
-		"mock-require": "^3.0.3",
-		"prettier": "^2.7.1",
-		"tape": "^5.6.0",
-		"tsx": "^3.8.2"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/rumCAJs/fp-ts-mongo.git"
-	},
-	"bugs": {
-		"url": "https://github.com/rumCAJs/fp-ts-mongo/issues"
-	},
-	"homepage": "https://github.com/rumCAJs/fp-ts-mongo#readme"
+  "name": "@polena/fp-ts-mongo",
+  "version": "0.3.0",
+  "description": "Basic fp-ts utils for mongodb",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "test": "tsx --no-cache test.ts",
+    "format": "prettier -w .",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "jaromir.polena@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "fp-ts": "^2.12.2",
+    "mongodb": "^4.9.0"
+  },
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.3",
+    "@types/sinon": "^10.0.13",
+    "@types/tape": "^4.13.2",
+    "mock-require": "^3.0.3",
+    "prettier": "^2.7.1",
+    "tape": "^5.6.0",
+    "tsup": "^6.6.3",
+    "tsx": "^3.8.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rumCAJs/fp-ts-mongo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rumCAJs/fp-ts-mongo/issues"
+  },
+  "homepage": "https://github.com/rumCAJs/fp-ts-mongo#readme"
 }
