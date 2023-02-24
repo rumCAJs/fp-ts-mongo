@@ -18,11 +18,12 @@
   "author": "jaromir.polena@gmail.com",
   "license": "MIT",
   "dependencies": {
-    "fp-ts": "^2.12.2",
-    "mongodb": "^4.9.0"
+    "fp-ts": "^2.13.1",
+    "mongodb": "^5.1.0"
   },
   "devDependencies": {
     "@tsconfig/node16": "^1.0.3",
+    "@types/node": "^18.14.1",
     "@types/sinon": "^10.0.13",
     "@types/tape": "^4.13.2",
     "mock-require": "^3.0.3",
